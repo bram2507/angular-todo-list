@@ -17,7 +17,10 @@ import { TodoListItem } from '../todo-list-item/todo-list-item-component';
       @if (!list.length) {
       <p>No hay ninguna tarea</p>
       } @else {
-      <todo-list-item [list]="list"></todo-list-item>
+      <todo-list-item
+        [list]="list"
+        (updateListItems)="deleteListItem($event)"
+      ></todo-list-item>
       }
     </ul>
   `,
@@ -34,5 +37,11 @@ export class TodoList {
   addListItem(): void {
     this.list.push(this.item);
     this.item = '';
+  }
+
+  deleteListItem(index: number): void {
+    console.log('index' + index);
+    this.list = this.list.filter((value, i) => index != i);
+    console.log('Event::updateListItems' + ' recived');
   }
 }

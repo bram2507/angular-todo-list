@@ -1,4 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-list-item',
@@ -8,7 +9,7 @@ import { Component, Input, Output } from '@angular/core';
       <div>
         {{ item }}
       </div>
-      <div>X</div>
+      <div (click)="deleteListItem($index)">X</div>
     </li>
     }
   `,
@@ -32,4 +33,11 @@ import { Component, Input, Output } from '@angular/core';
 export class TodoListItem {
   //Properties
   @Input() list: string[] = [];
+  @Output() updateListItems = new EventEmitter<number>();
+
+  //Functions
+  deleteListItem(index: number): void {
+    console.log('Event::updateListItems' + ' fired');
+    this.updateListItems.emit(index);
+  }
 }
