@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'todo-list-item',
-  template: ` <li>hello world!!!</li> `,
+  template: `
+    @for (item of list; track $index) {
+    <li>{{ item }}</li>
+    }
+  `,
   standalone: true,
 })
 export class TodoListItem {
-  //Atributes
+  //Properties
+  @Input() list: string[] = [];
 }

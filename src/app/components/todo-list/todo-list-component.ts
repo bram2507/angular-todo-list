@@ -5,10 +5,19 @@ import { TodoListItem } from '../todo-list-item/todo-list-item-component';
   selector: 'todo-list',
   template: `
     <ul>
-      <todo-list-item></todo-list-item>
+      @if (!list.length) {
+      <p>No hay ninguna tarea</p>
+      } @else {
+      <todo-list-item [list]="list"></todo-list-item>
+      }
     </ul>
   `,
   imports: [TodoListItem],
   standalone: true,
 })
-export class TodoList {}
+export class TodoList {
+  //Properties
+  list: string[] = [];
+
+  constructor() {}
+}
