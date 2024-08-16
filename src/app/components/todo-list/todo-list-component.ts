@@ -1,7 +1,11 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { TodoListItem } from '../todo-list-item/todo-list-item-component';
-import { TodoApiService } from '../../services/todo-list.service';
+import {
+  TodoApiService,
+  APIMock,
+  APIObject,
+} from '../../services/todo-list.service';
 
 @Component({
   selector: 'todo-list',
@@ -30,13 +34,20 @@ import { TodoApiService } from '../../services/todo-list.service';
 })
 export class TodoList {
   //Properties
-  list: string[] = [];
-  item: string = '';
-  httpService = inject(TodoApiService);
+  public list: string[] = [];
+  public item: string = '';
+  private httpService = inject(TodoApiService);
+  private serviceData: Object = {};
+
   constructor() {}
 
   ngOnInit() {
-    this.httpService.getDataHttpRequest();
+    this.httpService.getDataHttpRequest().subscribe((value) => {
+      this.serviceData = { ...(<APIMock>value).results };
+      Object.entries(this.serviceData).map((val) => {
+        console.log((<APIObject>val[1]).name);
+      });
+    });
   }
 
   addListItem(): void {

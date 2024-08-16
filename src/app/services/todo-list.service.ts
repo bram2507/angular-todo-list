@@ -1,16 +1,17 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-interface APIMock {
+export interface APIMock {
   count: number;
   next: string;
   previous: string;
   results: Object[];
 }
 
-interface ApiObject {
-  name: String;
-  url: String;
+export interface APIObject {
+  name: string;
+  url: any;
 }
 
 @Injectable({
@@ -55,12 +56,7 @@ export class TodoApiService {
   }
 
   getDataHttpRequest() {
-    let request = {};
-    this.http.get(this.url).subscribe((resp) => {
-      request = resp;
-      console.log(resp);
-    });
-    return request;
+    return this.http.get(this.url);
   }
 
   // methods to retrieve and return data
