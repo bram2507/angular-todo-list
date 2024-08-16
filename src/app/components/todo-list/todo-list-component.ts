@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, Inject, inject } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 import { TodoListItem } from '../todo-list-item/todo-list-item-component';
+import { TodoApiService } from '../../services/todo-list.service';
 
 @Component({
   selector: 'todo-list',
@@ -31,8 +32,15 @@ export class TodoList {
   //Properties
   list: string[] = [];
   item: string = '';
+  service = inject(TodoApiService);
 
   constructor() {}
+
+  ngOnInit() {
+    this.service.getDataWithPromise().then((data) => {
+      console.log(data);
+    });
+  }
 
   addListItem(): void {
     this.list.push(this.item);
@@ -40,7 +48,6 @@ export class TodoList {
   }
 
   deleteListItem(index: number): void {
-    console.log('index' + index);
     this.list = this.list.filter((value, i) => index != i);
     console.log('Event::updateListItems' + ' recived');
   }
