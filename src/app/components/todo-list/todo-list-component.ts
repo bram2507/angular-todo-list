@@ -32,14 +32,11 @@ export class TodoList {
   //Properties
   list: string[] = [];
   item: string = '';
-  service = inject(TodoApiService);
-
+  httpService = inject(TodoApiService);
   constructor() {}
 
   ngOnInit() {
-    this.service.getDataWithPromise().then((data) => {
-      console.log(data);
-    });
+    this.httpService.getDataHttpRequest();
   }
 
   addListItem(): void {

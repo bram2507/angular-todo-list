@@ -6,7 +6,7 @@ import { TodoList } from './components/todo-list/todo-list-component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, TodoList],
-  template: ` <todo-list><todo-list /> </todo-list> `,
+  template: ` <todo-list><todo-list /></todo-list>`,
   styleUrl: './app.component.css',
 })
 export class AppComponent {

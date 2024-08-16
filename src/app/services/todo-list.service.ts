@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface APIMock {
   count: number;
@@ -18,7 +19,9 @@ interface ApiObject {
 export class TodoApiService {
   //Properties
   url: string = 'https://pokeapi.co/api/v2/pokemon/?limit=3000';
+  http = inject(HttpClient);
 
+  constructor() {}
   getData(): void {
     try {
       fetch(this.url)
@@ -35,7 +38,7 @@ export class TodoApiService {
     }
   }
 
-  getDataWithPromise() {
+  getDataWithPromiseFetch() {
     const getResult = new Promise((response, reject) => {
       fetch(this.url).then((data) => {
         data.json().then((val: APIMock) => {
@@ -50,5 +53,15 @@ export class TodoApiService {
 
     return getResult;
   }
+
+  getDataHttpRequest() {
+    let request = {};
+    this.http.get(this.url).subscribe((resp) => {
+      request = resp;
+      console.log(resp);
+    });
+    return request;
+  }
+
   // methods to retrieve and return data
 }
