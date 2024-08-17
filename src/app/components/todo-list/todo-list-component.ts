@@ -37,16 +37,25 @@ export class TodoList {
   public list: string[] = [];
   public item: string = '';
   private httpService = inject(TodoApiService);
-  private serviceData: Object = {};
 
   constructor() {}
 
   ngOnInit() {
-    this.httpService.getDataHttpRequest().subscribe((value) => {
-      this.serviceData = { ...(<APIMock>value).results };
-      Object.entries(this.serviceData).map((val) => {
-        console.log((<APIObject>val[1]).name);
-      });
+    this.httpService.getDataHttpRequest().subscribe({
+      next: async (response) => {
+        let paylod = new APIMock(response);
+        paylod.getResults().map((resp) => {
+          console.log(resp);
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+
+      // this.serviceData = { ...(<APIMock>value).results };
+      // Object.entries(this.serviceData).map((val) => {
+      //   console.log(val);
+      //   console.log((<APIObject>val[1]).name);
     });
   }
 

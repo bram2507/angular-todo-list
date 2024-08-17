@@ -1,12 +1,34 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
-export interface APIMock {
-  count: number;
-  next: string;
-  previous: string;
-  results: Object[];
+export class APIMock {
+  public count: number = 0;
+  public next: Object = {};
+  public previous: Object = {};
+  public results: Array<APIObject> = [];
+
+  constructor(data: any) {
+    this.count = (<APIMock>data).count;
+    this.next = (<APIMock>data).next;
+    this.previous = (<APIMock>data).previous;
+    this.results = (<APIMock>data).results;
+  }
+
+  public getCount(): number {
+    return this.count;
+  }
+
+  public getPrevious(): Object {
+    return this.previous;
+  }
+
+  public getNext(): Object {
+    return this.next;
+  }
+
+  public getResults(): Array<APIObject> {
+    return this.results;
+  }
 }
 
 export interface APIObject {
