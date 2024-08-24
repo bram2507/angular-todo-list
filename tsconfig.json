@@ -21,11 +21,8 @@
     "lib": ["ES2022", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@app/": ["app/*"],
-      "@core/": ["core/*"],
-      "@infrastructure/": ["infrastructure/*"],
-      "@module/": ["module/*"],
-      "@components/*": ["components/*"]
+      "@core/*": ["./src/app/core/*"],
+      "@infrastructure/*": ["./src/app/infrastructure/*"]
     }
   },
   "angularCompilerOptions": {

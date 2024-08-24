@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TaskMapper } from './../../core/mappers/task.mapper';
-import { Task } from './../../core/models/task.model';
-import { TaskDTO } from './../../infrastructure/dto/task.dto';
+import { TaskMapper } from '@core/mappers/task.mapper';
+import { Task } from '@core/models/task.model';
+import { TaskDTO } from '@infrastructure/dto/task.dto';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
