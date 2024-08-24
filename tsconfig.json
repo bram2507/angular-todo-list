@@ -25,5 +25,13 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@app/": ["app/*"],
+    "@core/": ["core/*"],
+    "@infrastructure/": ["infrastructure/*"],
+    "@module/": ["module/*"],
+    "@components/*": ["components/*"]
   }
 }
