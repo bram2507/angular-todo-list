@@ -5,7 +5,7 @@ import {
   TodoApiService,
   APIMock,
   APIObject,
-} from '../../services/todo-list.service';
+} from '../../infrastructure/services/todo-list.service';
 
 @Component({
   selector: 'todo-list',
