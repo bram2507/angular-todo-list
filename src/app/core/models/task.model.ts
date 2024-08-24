@@ -9,16 +9,4 @@ export class Task {
     this.description = '';
     this.completed = false;
   }
-
-  public getId(): number {
-    return this.id;
-  }
-
-  public getDescription(): string {
-    return this.description;
-  }
-
-  public getCompleted(): boolean {
-    return this.completed;
-  }
 }

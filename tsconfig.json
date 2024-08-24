@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "@core/*": ["./src/app/core/*"],
-      "@infrastructure/*": ["./src/app/infrastructure/*"]
+      "@infrastructure/*": ["./src/app/infrastructure/*"],
+      "@module/*": ["./src/app/module/*"]
     }
   },
   "angularCompilerOptions": {

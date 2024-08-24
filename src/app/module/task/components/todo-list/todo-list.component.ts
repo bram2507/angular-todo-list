@@ -1,11 +1,11 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
-import { TodoListItem } from '../todo-list-item/todo-list-item-component';
+import { TodoListItem } from '../todo-list-item/todo-list-item.component';
 import {
   TodoApiService,
   APIMock,
   APIObject,
-} from '../../../../infrastructure/services/todo-list.service';
+} from '@infrastructure/services/todo-list.service';
 
 @Component({
   selector: 'todo-list',

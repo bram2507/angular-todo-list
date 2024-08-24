@@ -1,6 +1,6 @@
-import { TaskDTO } from './../../infrastructure/dto/task.dto';
+import { TaskDTO } from '@infrastructure/dto/task.dto';
 
-import { Task } from '../models/task.model';
+import { Task } from '@core/models/task.model';
 
 export class TaskMapper {
   static fromApiToDomain(apiTask: TaskDTO): Task {

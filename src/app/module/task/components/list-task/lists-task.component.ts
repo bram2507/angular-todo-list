@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from './../../../../core/models/task.model';
-import { TaskRepository } from './../../../../core/repositories/task.repository';
+import { Task } from '@core/models/task.model';
+import { TaskRepository } from '@core/repositories/task.repository';
 
 @Component({
   selector: 'app-list-tasks',
