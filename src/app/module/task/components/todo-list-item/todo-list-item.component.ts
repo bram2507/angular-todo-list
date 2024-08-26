@@ -1,33 +1,37 @@
 import { Component, Input, Output } from '@angular/core';
+import { MatFormField } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-list-item',
   template: `
-    @for (item of list; track $index) {
-    <li>
-      <div>
+    <mat-action-list #tasks>
+      @for (item of list; track $index) {
+      <mat-list-item>
         {{ item }}
-      </div>
-      <div (click)="deleteListItem($index)">X</div>
-    </li>
-    }
+        <button
+          (click)="deleteListItem($index)"
+          matChipRemove
+          [attr.aria-label]="'remove'"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-list-item>
+      }
+    </mat-action-list>
   `,
   styles: `
-  li{
+  mat-list-action{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 250px;
-    min-height: 30px;
-    white-space: pre-wrap;
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
+    height: 60px;
   }
 
   `,
+  imports: [MatFormField, MatListModule, MatIconModule],
   standalone: true,
 })
 export class TodoListItem {

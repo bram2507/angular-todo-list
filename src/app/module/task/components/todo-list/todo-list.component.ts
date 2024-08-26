@@ -1,6 +1,9 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
-import { TodoListItem } from '../todo-list-item/todo-list-item.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { TodoListItem } from '@module/task/components/todo-list-item/todo-list-item.component';
 import {
   TodoApiService,
   APIMock,
@@ -10,17 +13,22 @@ import {
 @Component({
   selector: 'todo-list',
   template: `
+    <section>
+      <mat-form-field>
+        <mat-label>Textarea</mat-label>
+        <input [(ngModel)]="item" matInput placeholder="Escriba una tarea" />
+      </mat-form-field>
+    </section>
+    <section>
+      <button mat-flat-button color="secondary" (click)="addListItem()">
+        Añadir
+      </button>
+    </section>
     <ul>
-      <section>
-        <div>
-          <textarea [(ngModel)]="item"></textarea>
-        </div>
-        <div>
-          <button (click)="addListItem()">Añadir</button>
-        </div>
-      </section>
       @if (!list.length) {
-      <p>No hay ninguna tarea</p>
+      <mat-list>
+        <mat-list-item> No hay ninguna tarea </mat-list-item>
+      </mat-list>
       } @else {
       <todo-list-item
         [list]="list"
@@ -29,7 +37,14 @@ import {
       }
     </ul>
   `,
-  imports: [TodoListItem, FormsModule],
+  styles: '',
+  imports: [
+    TodoListItem,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+  ],
   standalone: true,
 })
 export class TodoList {
@@ -60,8 +75,10 @@ export class TodoList {
   }
 
   addListItem(): void {
-    this.list.push(this.item);
-    this.item = '';
+    if (this.item && this.item != null && this.item !== '') {
+      this.list.push(this.item);
+      this.item = '';
+    }
   }
 
   deleteListItem(index: number): void {

@@ -1,1 +1,24 @@
-
+<main [class]="matTheme">
+  <mat-toolbar>
+    <section>
+      <span>My app</span>
+    </section>
+    <span class="flex-space-between"></span>
+    <section>
+      <mat-slide-toggle
+        [color]="matTheme"
+        [checked]="checked"
+        (toggleChange)="changeTheme()"
+      >
+        <span>
+          {{ theme }}
+        </span>
+      </mat-slide-toggle>
+    </section>
+  </mat-toolbar>
+  <mat-grid-list cols="1" rowHeight="4:3">
+    <mat-grid-tile>
+      <todo-list></todo-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+</main>
