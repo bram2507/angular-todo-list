@@ -1,21 +1,20 @@
-<main [class]="matTheme">
-  <mat-toolbar>
+<main [class]="toogleTheme.current">
+  <mat-toolbar class="mat-nav-toolbar">
     <section>
       <span>My app</span>
     </section>
     <span class="flex-space-between"></span>
     <section>
       <mat-slide-toggle
-        [color]="matTheme"
+        [color]="toogleTheme.current"
         [checked]="checked"
         (toggleChange)="changeTheme()"
       >
-        <span>
-          {{ theme }}
-        </span>
+        <span> {{ this.toogleTheme.current | theme }} </span>
       </mat-slide-toggle>
     </section>
   </mat-toolbar>
+
   <mat-grid-list cols="1" rowHeight="4:3">
     <mat-grid-tile>
       <todo-list></todo-list>

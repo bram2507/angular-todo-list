@@ -4,6 +4,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TodoList } from './module/task/components/todo-list/todo-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  standalone: true,
+  name: 'theme',
+})
+export class ThemeType implements PipeTransform {
+  transform(value: string): string {
+    return `${value.slice(10, 15).toUpperCase()}`;
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -14,6 +25,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatGridListModule,
     MatToolbarModule,
     MatSlideToggleModule,
+    ThemeType,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -21,15 +33,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
 export class AppComponent {
   title = 'todo-list';
   checked: boolean = false;
-  theme: string = 'Light';
-  matTheme: string = 'mat-theme-ligth';
+  toogleTheme = {
+    light: 'mat-theme-light',
+    dark: 'mat-theme-dark',
+    current: 'mat-theme-light',
+    checked: false,
+  };
 
   changeTheme(): void {
-    this.checked = !this.checked;
-    !this.checked ? (this.theme = 'Light') : (this.theme = 'Dark');
-    this.matTheme === 'mat-theme-dark'
-      ? (this.matTheme = 'mat-theme-light')
-      : (this.matTheme = 'mat-theme-dark');
+    this.toogleTheme.checked = !this.toogleTheme.checked;
+    !this.toogleTheme.checked
+      ? (this.toogleTheme.current = this.toogleTheme.light)
+      : (this.toogleTheme.current = this.toogleTheme.dark);
   }
 
   constructor() {}

@@ -15,8 +15,8 @@ import {
   template: `
     <section>
       <mat-form-field>
-        <mat-label>Textarea</mat-label>
-        <input [(ngModel)]="item" matInput placeholder="Escriba una tarea" />
+        <mat-label>Task</mat-label>
+        <input [(ngModel)]="item" matInput placeholder="Write a task" />
       </mat-form-field>
     </section>
     <section>
@@ -27,7 +27,7 @@ import {
     <ul>
       @if (!list.length) {
       <mat-list>
-        <mat-list-item> No hay ninguna tarea </mat-list-item>
+        <mat-list-item> Empty taks </mat-list-item>
       </mat-list>
       } @else {
       <todo-list-item
