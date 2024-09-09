@@ -4,6 +4,19 @@
       <span>My app</span>
     </section>
     <span class="flex-space-between"></span>
+    <section class="mat-menu-theme-selector">
+      <button
+        mat-button
+        [class]="toogleTheme.current"
+        [matMenuTriggerFor]="menu"
+      >
+        Menu
+      </button>
+      <mat-menu [class]="toogleTheme.current" #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </section>
     <section>
       <mat-slide-toggle
         [color]="toogleTheme.current"

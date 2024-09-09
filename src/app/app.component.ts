@@ -4,13 +4,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TodoList } from './module/task/components/todo-list/todo-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { NgClass } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   standalone: true,
   name: 'theme',
 })
-export class ThemeType implements PipeTransform {
+export class ThemePipe implements PipeTransform {
   transform(value: string): string {
     return `${value.slice(10, 15).toUpperCase()}`;
   }
@@ -25,7 +29,11 @@ export class ThemeType implements PipeTransform {
     MatGridListModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    ThemeType,
+    MatMenuModule,
+    MatButtonModule,
+    ThemePipe,
+    NgClass,
+    MatCardModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

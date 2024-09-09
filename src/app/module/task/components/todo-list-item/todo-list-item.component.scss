@@ -1,0 +1,27 @@
+.mat-list-item {
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 1px solid lightgrey;
+}
+
+.mat-list-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  min-height: 5vh;
+  white-space: normal;
+}
+
+.mat-list-item-task {
+  width: 200px;
+  min-height: 30px;
+}
+
+.mat-list-item-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  width: auto;
+  height: auto;
+}

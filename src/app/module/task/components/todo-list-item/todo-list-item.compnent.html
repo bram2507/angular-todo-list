@@ -1,0 +1,19 @@
+<mat-action-list #tasks>
+  @for (item of list; track $index) {
+  <mat-list-item class="mat-list-item">
+    <section class="mat-list-item-container">
+      <div class="mat-list-item-task">{{ item }}</div>
+      <div>
+        <button
+          (click)="deleteListItem($index)"
+          matChipRemove
+          [attr.aria-label]="'remove'"
+          class="mat-list-item-cancel"
+        >
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </section>
+  </mat-list-item>
+  }
+</mat-action-list>

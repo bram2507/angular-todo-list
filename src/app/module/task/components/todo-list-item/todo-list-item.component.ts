@@ -6,38 +6,8 @@ import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-list-item',
-  template: `
-    <mat-action-list #tasks>
-      @for (item of list; track $index) {
-      <mat-list-item>
-        <div>
-          {{ item }}
-        </div>
-        <div>
-          <button
-            (click)="deleteListItem($index)"
-            matChipRemove
-            [attr.aria-label]="'remove'"
-          >
-            <mat-icon>cancel</mat-icon>
-          </button>
-        </div>
-      </mat-list-item>
-      }
-    </mat-action-list>
-  `,
-  styles: `
-  mat-list-item{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    width: 250px;
-    height: 60px;
-    border-radius: 4px;
-  }
-
-  `,
+  templateUrl: './todo-list-item.compnent.html',
+  styleUrl: './todo-list-item.component.scss',
   imports: [MatFormField, MatListModule, MatIconModule],
   standalone: true,
 })

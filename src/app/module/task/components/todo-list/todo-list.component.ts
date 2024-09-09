@@ -12,32 +12,8 @@ import {
 
 @Component({
   selector: 'todo-list',
-  template: `
-    <section>
-      <mat-form-field>
-        <mat-label>Task</mat-label>
-        <input [(ngModel)]="item" matInput placeholder="Write a task" />
-      </mat-form-field>
-    </section>
-    <section>
-      <button mat-flat-button color="secondary" (click)="addListItem()">
-        Añadir
-      </button>
-    </section>
-    <ul>
-      @if (!list.length) {
-      <mat-list>
-        <mat-list-item> Empty taks </mat-list-item>
-      </mat-list>
-      } @else {
-      <todo-list-item
-        [list]="list"
-        (updateListItems)="deleteListItem($event)"
-      ></todo-list-item>
-      }
-    </ul>
-  `,
-  styles: '',
+  templateUrl: './todo-list.component.html',
+  styleUrl: './todo-list.component.scss',
   imports: [
     TodoListItem,
     FormsModule,
