@@ -1,33 +1,5 @@
 <main [class]="toogleTheme.current">
-  <mat-toolbar class="mat-nav-toolbar">
-    <section>
-      <span>My app</span>
-    </section>
-    <span class="mat-nav-toolbar-space"></span>
-    <section class="mat-menu-theme-selector">
-      <button
-        mat-button
-        [class]="toogleTheme.current"
-        [matMenuTriggerFor]="menu"
-      >
-        Menu
-      </button>
-      <mat-menu [class]="toogleTheme.current" #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-    </section>
-    <section>
-      <mat-slide-toggle
-        [color]="toogleTheme.current"
-        [checked]="checked"
-        (toggleChange)="changeTheme()"
-      >
-        <span> {{ this.toogleTheme.current | theme }} </span>
-      </mat-slide-toggle>
-    </section>
-  </mat-toolbar>
-
+  <navbar></navbar>
   <mat-grid-list cols="1" rowHeight="4:3">
     <mat-grid-tile>
       <todo-list></todo-list>
