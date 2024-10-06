@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
-import {GlobalTheme} from '@infrastructure/services/global-theme.service';
+import { GlobalTheme } from '@infrastructure/services/global-theme.service';
 @Pipe({
   standalone: true,
   name: 'theme',
@@ -40,14 +40,16 @@ export class NavBar {
     checked: false,
   };
 
-  constructor() {
-   
-  }
+  constructor() {}
 
   changeTheme(): void {
     GlobalTheme.toogleTheme.checked = !GlobalTheme.toogleTheme.checked;
     !GlobalTheme.toogleTheme.checked
       ? (GlobalTheme.toogleTheme.current = GlobalTheme.toogleTheme.light)
       : (GlobalTheme.toogleTheme.current = GlobalTheme.toogleTheme.dark);
+
+    this.toogleTheme = GlobalTheme.toogleTheme;
+    console.log('service var ' + GlobalTheme.toogleTheme.current);
+    console.log('nvabar class ' + this.toogleTheme.current);
   }
 }
