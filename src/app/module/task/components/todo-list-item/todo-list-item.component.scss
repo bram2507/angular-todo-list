@@ -1,27 +1,34 @@
-.mat-list-item {
-  border-radius: 5px;
-  margin-top: 20px;
-  border: 1px solid lightgrey;
+.mat-list-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  width: 200px;
+  min-height: 3vh;
+  white-space: pre-line;
 }
 
-.mat-list-item-container {
+.mat-list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 200px;
-  min-height: 5vh;
-  white-space: normal;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: 1px solid lightgrey;
+  min-width: 200px;
+  height: auto;
+  padding: 0.5em;
 }
 
 .mat-list-item-task {
   width: 200px;
-  min-height: 30px;
+  height: auto;
 }
 
 .mat-list-item-cancel {
   display: flex;
-  align-items: center;
-  justify-content: top;
+  align-items: start;
+  justify-content: flex-start;
   width: auto;
   height: auto;
+  cursor: pointer;
 }

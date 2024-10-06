@@ -41,11 +41,12 @@ $orange-theme-light: mat.define-theme(
   margin-right: 1em;
 }
 
-.flex-space-between {
+.mat-nav-toolbar-space {
   flex: 1 1 auto;
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow-y: auto;
 }

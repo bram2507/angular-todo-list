@@ -25,6 +25,7 @@ export class ThemePipe implements PipeTransform {
     MatMenuModule,
     MatButtonModule,
     MatToolbar,
+    ThemePipe,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -38,6 +39,9 @@ export class NavBar {
     current: 'mat-theme-light',
     checked: false,
   };
+  outsideTheme: boolean = false;
+
+  constructor() {}
 
   changeTheme(): void {
     this.toogleTheme.checked = !this.toogleTheme.checked;
@@ -45,6 +49,4 @@ export class NavBar {
       ? (this.toogleTheme.current = this.toogleTheme.light)
       : (this.toogleTheme.current = this.toogleTheme.dark);
   }
-
-  constructor() {}
 }
