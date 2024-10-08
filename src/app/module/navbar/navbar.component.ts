@@ -5,7 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
-import { GlobalTheme } from '@infrastructure/services/global-theme.service';
+import currentTheme, {
+  Theme,
+} from '@infrastructure/services/global-theme.service';
+
 @Pipe({
   standalone: true,
   name: 'theme',
@@ -40,16 +43,19 @@ export class NavBar {
     checked: false,
   };
 
-  constructor() {}
+  constructor() {
+    currentTheme.subscribe((value) => {
+      this.toogleTheme = <any>value;
+      console.log('NavBar component Observable', value);
+    });
+  }
 
   changeTheme(): void {
-    GlobalTheme.toogleTheme.checked = !GlobalTheme.toogleTheme.checked;
-    !GlobalTheme.toogleTheme.checked
-      ? (GlobalTheme.toogleTheme.current = GlobalTheme.toogleTheme.light)
-      : (GlobalTheme.toogleTheme.current = GlobalTheme.toogleTheme.dark);
-
-    this.toogleTheme = GlobalTheme.toogleTheme;
-    console.log('service var ' + GlobalTheme.toogleTheme.current);
-    console.log('nvabar class ' + this.toogleTheme.current);
+    this.toogleTheme.checked = !this.toogleTheme.checked;
+    !this.toogleTheme.checked
+      ? (this.toogleTheme.current = this.toogleTheme.light)
+      : (this.toogleTheme.current = this.toogleTheme.dark);
+    currentTheme.next(this.toogleTheme);
+    // console.log('nvabar class ' + this.toogleTheme);
   }
 }

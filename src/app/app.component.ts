@@ -3,7 +3,9 @@ import { TodoList } from './module/task/components/todo-list/todo-list.component
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { NavBar } from '@module/navbar/navbar.component';
-import { GlobalTheme } from '@infrastructure/services/global-theme.service';
+import currentTheme, {
+  Theme,
+} from '@infrastructure/services/global-theme.service';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +16,13 @@ import { GlobalTheme } from '@infrastructure/services/global-theme.service';
 })
 export class AppComponent {
   title = 'todo-list';
-  // checked: boolean = false;
-  toogleTheme = {
-    light: 'mat-theme-light',
-    dark: 'mat-theme-dark',
-    current: 'mat-theme-light',
-    checked: false,
-  };
+  currentTheme: string = '';
 
   constructor() {
-    this.toogleTheme = GlobalTheme.toogleTheme;
+    currentTheme.subscribe((value) => {
+      console.log(<Theme>value);
+      this.currentTheme = (<Theme>value).current;
+      // console.log('App component Observable', value);
+    });
   }
 }
