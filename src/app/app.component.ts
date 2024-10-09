@@ -16,12 +16,12 @@ import currentTheme, {
 })
 export class AppComponent {
   title = 'todo-list';
-  currentTheme: string = '';
+  currentTheme: Theme = {};
 
   constructor() {
-    currentTheme.subscribe((value) => {
-      console.log(<Theme>value);
-      this.currentTheme = (<Theme>value).current;
+    currentTheme.subscribe((value: Theme) => {
+      console.log(value);
+      this.currentTheme.current = value.current;
       // console.log('App component Observable', value);
     });
   }

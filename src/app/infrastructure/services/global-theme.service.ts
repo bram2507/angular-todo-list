@@ -1,10 +1,10 @@
 import { BehaviorSubject } from 'rxjs';
 
 export interface Theme {
-  light: string;
-  dark: string;
-  current: string;
-  checked: boolean;
+  light?: string;
+  dark?: string;
+  current?: string;
+  checked?: boolean;
 }
 
 let GlobalTheme = {
