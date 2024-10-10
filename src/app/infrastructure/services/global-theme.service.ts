@@ -14,6 +14,6 @@ let GlobalTheme = {
   checked: false,
 };
 
-let currentTheme = new BehaviorSubject<Object>(GlobalTheme);
+let currentTheme = new BehaviorSubject<Theme>(GlobalTheme);
 
 export default currentTheme;

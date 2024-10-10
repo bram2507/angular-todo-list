@@ -20,9 +20,7 @@ export class AppComponent {
 
   constructor() {
     currentTheme.subscribe((value: Theme) => {
-      console.log(value);
       this.currentTheme.current = value.current;
-      // console.log('App component Observable', value);
     });
   }
 }
