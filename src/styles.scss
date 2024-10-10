@@ -21,6 +21,8 @@ $orange-theme-light: mat.define-theme(
   )
 );
 
+//TODO:
+//Heihgt fix angular main content on list generator
 .mat-theme-dark {
   background: mat.get-theme-color($orange-theme-dark, background);
   @include mat.all-component-colors($orange-theme-dark);

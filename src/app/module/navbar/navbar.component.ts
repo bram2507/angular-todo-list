@@ -5,6 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
+import currentTheme, {
+  Theme,
+} from '@infrastructure/services/global-theme.service';
 
 @Pipe({
   standalone: true,
@@ -39,14 +42,20 @@ export class NavBar {
     current: 'mat-theme-light',
     checked: false,
   };
-  outsideTheme: boolean = false;
 
-  constructor() {}
+  constructor() {
+    currentTheme.subscribe((value) => {
+      this.toogleTheme = <any>value;
+      console.log('NavBar component Observable', value);
+    });
+  }
 
   changeTheme(): void {
     this.toogleTheme.checked = !this.toogleTheme.checked;
     !this.toogleTheme.checked
       ? (this.toogleTheme.current = this.toogleTheme.light)
       : (this.toogleTheme.current = this.toogleTheme.dark);
+    currentTheme.next(this.toogleTheme);
+    // console.log('nvabar class ' + this.toogleTheme);
   }
 }
