@@ -13,6 +13,9 @@ import { EventEmitter } from '@angular/core';
 })
 export class TodoListItem {
   //Properties
+  //TODO: Change Input and Output for Signals
+  //TODO: State management
+
   @Input() list: string[] = [];
   @Output() updateListItems = new EventEmitter<number>();
 
