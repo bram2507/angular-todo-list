@@ -7,7 +7,7 @@ export class TaskMapper {
     return {
       id: apiTask.id,
       description: apiTask.description,
-      completed: apiTask.completed,
+      // completed: apiTask.completed,
     };
   }
 
@@ -15,7 +15,7 @@ export class TaskMapper {
     return {
       id: domainTask.id,
       description: domainTask.description,
-      completed: domainTask.completed,
+      // completed: domainTask.completed,
     };
   }
 }
