@@ -1,18 +1,21 @@
+
+
+
 import { Injectable } from '@angular/core';
 import { Task } from '@core/models/task.model';
-import { TaskRepository } from '@core/repositories/task.repository';
-import { TaskService } from '@infrastructure/services/task.service';
+import { ThemeRepository } from '@core/repositories/theme.repository';
+import { ThemeService } from '@infrastructure/services/theme.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TaskRepositoryImpl implements TaskRepository {
-  constructor(private TaskService: TaskService) {}
+export class ThemeRepositoryImpl implements ThemeRepository {
+  constructor(private themeService: ThemeService) {}
 
-  //   getTasks(): Observable<Task[]> {
-  //     return this.taskService.getTasks();
-  //   }
+    // getTheme(): Observable<Theme> {
+    //   return this.themeService.;
+    // }
 
   //   addTask(task: Task): Observable<Task> {
   //     return this.taskService.addTask(task);

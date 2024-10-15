@@ -5,9 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
-import currentTheme, {
-  Theme,
-} from '@infrastructure/services/global-theme.service';
+import { ThemeDTO } from '@infrastructure/dto/task.dto';
+import { ThemeService } from '@infrastructure/services/theme.service';
 
 @Pipe({
   standalone: true,
@@ -36,11 +35,12 @@ export class ThemePipe implements PipeTransform {
 export class NavBar {
   title = 'todo-list';
   checked: boolean = false;
-  toogleTheme: Theme = {};
+  toogleTheme: ThemeDTO = {};
+  swipeTheme: string = '';
 
-  constructor() {
-    currentTheme.subscribe((value) => {
-      this.toogleTheme = <Theme>value;
+  constructor(private currentTheme: ThemeService) {
+    currentTheme.getTheme().subscribe((value) => {
+      this.toogleTheme = <ThemeDTO>value;
       console.log('NavBar component Observable', value);
     });
   }
@@ -50,7 +50,8 @@ export class NavBar {
     !this.toogleTheme.checked
       ? (this.toogleTheme.current = this.toogleTheme.light)
       : (this.toogleTheme.current = this.toogleTheme.dark);
-    currentTheme.next(this.toogleTheme);
-    // console.log('nvabar class ' + this.toogleTheme);
+    this.currentTheme.updateTheme(this.toogleTheme);
+    this.swipeTheme = <string>this.toogleTheme.current;
+    console.log('nvabar class ' + this.toogleTheme);
   }
 }

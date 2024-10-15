@@ -11,6 +11,13 @@
 */
 
 export interface TaskDTO {
-  id: number;
-  description: string;
+  id?: number;
+  description?: string;
+}
+
+export interface ThemeDTO {
+  light?: string;
+  dark?: string;
+  current?: string;
+  checked?: boolean;
 }

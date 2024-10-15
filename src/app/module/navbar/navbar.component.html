@@ -7,7 +7,7 @@
     <button mat-button [class]="toogleTheme.current" [matMenuTriggerFor]="menu">
       Menu
     </button>
-    <mat-menu [class]="toogleTheme.current" #menu="matMenu">
+    <mat-menu [class]="swipeTheme" #menu="matMenu">
       <button mat-menu-item>Item 1</button>
       <button mat-menu-item>Item 2</button>
     </mat-menu>
@@ -18,7 +18,7 @@
       [checked]="checked"
       (toggleChange)="changeTheme()"
     >
-      <span> {{ this.toogleTheme.current | theme }} </span>
+      <span> {{ swipeTheme | theme }} </span>
     </mat-slide-toggle>
   </section>
 </mat-toolbar>

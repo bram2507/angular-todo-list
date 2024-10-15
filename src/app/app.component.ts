@@ -3,9 +3,8 @@ import { TodoList } from './module/task/components/todo-list/todo-list.component
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { NavBar } from '@module/navbar/navbar.component';
-import currentTheme, {
-  Theme,
-} from '@infrastructure/services/global-theme.service';
+import { Theme } from '@core/models/theme.model';
+import { ThemeService } from '@infrastructure/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +15,10 @@ import currentTheme, {
 })
 export class AppComponent {
   title = 'todo-list';
-  currentTheme: Theme = {};
+  currentTheme: Theme = new Theme();
 
-  constructor() {
-    currentTheme.subscribe((value: Theme) => {
+  constructor(currentTheme: ThemeService) {
+    currentTheme.getTheme().subscribe((value: Theme) => {
       this.currentTheme.current = value.current;
     });
   }
