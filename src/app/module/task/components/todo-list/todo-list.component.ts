@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,7 @@ import {
   ],
   standalone: true,
 })
-export class TodoList {
+export class TodoList implements OnInit {
   //Properties
   public list: string[] = [];
   public item: string = '';

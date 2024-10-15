@@ -36,16 +36,11 @@ export class ThemePipe implements PipeTransform {
 export class NavBar {
   title = 'todo-list';
   checked: boolean = false;
-  toogleTheme = {
-    light: 'mat-theme-light',
-    dark: 'mat-theme-dark',
-    current: 'mat-theme-light',
-    checked: false,
-  };
+  toogleTheme: Theme = {};
 
   constructor() {
     currentTheme.subscribe((value) => {
-      this.toogleTheme = <any>value;
+      this.toogleTheme = <Theme>value;
       console.log('NavBar component Observable', value);
     });
   }

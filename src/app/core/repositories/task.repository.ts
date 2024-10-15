@@ -7,4 +7,9 @@ export abstract class TaskRepository {
   abstract addTask(task: Task): Observable<Task>;
   abstract updateTask(task: Task): Observable<void>;
   abstract deleteTask(id: number): Observable<void>;
+
+  // abstract getTasks(): Task[];
+  // abstract addTask(task: Task): Task;
+  // abstract updateTask(task: Task): void;
+  // abstract deleteTask(id: number): void;
 }
