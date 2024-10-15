@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
 import { ThemeDTO } from '@infrastructure/dto/task.dto';
-import { ThemeService } from '@infrastructure/services/theme.service';
+import { ThemeRepositoryImpl } from '@infrastructure/repositories/theme.repository.impl';
 
 @Pipe({
   standalone: true,
@@ -38,7 +38,7 @@ export class NavBar {
   toogleTheme: ThemeDTO = {};
   swipeTheme: string = '';
 
-  constructor(private currentTheme: ThemeService) {
+  constructor(private currentTheme: ThemeRepositoryImpl) {
     currentTheme.getTheme().subscribe((value) => {
       this.toogleTheme = <ThemeDTO>value;
       console.log('NavBar component Observable', value);
@@ -52,6 +52,6 @@ export class NavBar {
       : (this.toogleTheme.current = this.toogleTheme.dark);
     this.currentTheme.updateTheme(this.toogleTheme);
     this.swipeTheme = <string>this.toogleTheme.current;
-    console.log('nvabar class ' + this.toogleTheme);
+    console.log('nvabar class ' + this.toogleTheme.current);
   }
 }
