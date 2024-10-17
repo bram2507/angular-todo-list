@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TodoList } from './module/task/components/todo-list/todo-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import { NavBar } from '@module/navbar/navbar.component';
+import { NavBar } from '@module/task/components/navbar/navbar.component';
 import { Theme } from '@core/models/theme.model';
 import { ThemeService } from '@infrastructure/services/theme.service';
 
