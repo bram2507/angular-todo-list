@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TaskMapper } from '@core/mappers/task.mapper';
 import { Task } from '@core/models/task.model';
-import { TaskDTO } from '@infrastructure/dto/task.dto';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -13,18 +12,18 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<Task[]> {
-    return this.http
-      .get<TaskDTO[]>(this.apiUrl)
-      .pipe(map((apiTasks) => apiTasks.map(TaskMapper.fromApiToDomain)));
-  }
+  // getTasks(): Observable<Task[]> {
+  //   return this.http
+  //     .get<Task[]>(this.apiUrl)
+  //     .pipe(map((apiTasks) => apiTasks.map(TaskMapper.fromApiToDomain)));
+  // }
 
-  addTask(task: Task): Observable<Task> {
-    const apiTask = TaskMapper.fromDomainToApi(task);
-    return this.http
-      .post<TaskDTO>(this.apiUrl, apiTask)
-      .pipe(map(TaskMapper.fromApiToDomain));
-  }
+  // addTask(task: Task): Observable<Task> {
+  //   const apiTask = TaskMapper.fromDomainToApi(task);
+  //   return this.http
+  //     .post<Task>(this.apiUrl, apiTask)
+  //     .pipe(map(TaskMapper.fromApiToDomain));
+  // }
 
   updateTask(task: Task): Observable<void> {
     const url = `${this.apiUrl}/${task.id}`;

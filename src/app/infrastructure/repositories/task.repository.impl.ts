@@ -8,21 +8,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskRepositoryImpl implements TaskRepository {
-  constructor(private TaskService: TaskService) {}
+  constructor(private taskService: TaskService) {}
 
-  //   getTasks(): Observable<Task[]> {
-  //     return this.taskService.getTasks();
-  //   }
+  getTasks(): Observable<Task[]> {
+    return this.taskService.getTasks();
+  }
 
-  //   addTask(task: Task): Observable<Task> {
-  //     return this.taskService.addTask(task);
-  //   }
+  addTask(task: Task): Observable<Task> {
+    return this.taskService.addTask(task);
+  }
 
-  //   updateTask(task: Task): Observable<void> {
-  //     return this.taskService.updateTask(task);
-  //   }
+  updateTask(task: Task): Observable<void> {
+    return this.taskService.updateTask(task);
+  }
 
-  //   deleteTask(id: number): Observable<void> {
-  //     return this.taskService.deleteTask(id);
-  //   }
+  deleteTask(id: number): Observable<void> {
+    return this.taskService.deleteTask(id);
+  }
+
+  getTaskId(task: Task): number {
+    return this.taskService.
+  }
 }

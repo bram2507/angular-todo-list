@@ -1,9 +1,7 @@
 import { TaskDTO } from '@infrastructure/dto/task.dto';
 
-import { Task } from '@core/models/task.model';
-
 export class TaskMapper {
-  static fromApiToDomain(apiTask: TaskDTO): Task {
+  static fromApiToDomain(apiTask: TaskDTO): TaskDTO {
     return {
       id: apiTask.id,
       description: apiTask.description,
@@ -11,7 +9,7 @@ export class TaskMapper {
     };
   }
 
-  static fromDomainToApi(domainTask: Task): TaskDTO {
+  static fromDomainToApi(domainTask: TaskDTO): TaskDTO {
     return {
       id: domainTask.id,
       description: domainTask.description,

@@ -1,10 +1,4 @@
-export interface Theme {
-  light?: string;
-  dark?: string;
-  current?: string;
-  checked?: boolean;
-}
-
+//Estructura de datos de una tarea en la aplicación
 export class Theme {
   light?: string;
   dark?: string;

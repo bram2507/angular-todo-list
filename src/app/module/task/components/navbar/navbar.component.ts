@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Pipe, PipeTransform } from '@angular/core';
-import { ThemeDTO } from '@infrastructure/dto/task.dto';
+import { ThemeDTO } from '@infrastructure/dto/theme.dto';
 import { ThemeRepositoryImpl } from '@infrastructure/repositories/theme.repository.impl';
 
 @Pipe({

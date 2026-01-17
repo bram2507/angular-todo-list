@@ -13,15 +13,7 @@ export class ThemeRepositoryImpl implements ThemeRepository {
   getTheme(): Observable<Theme> {
     return this.themeService.getTheme();
   }
-  updateTheme(theme: Theme) {
+  updateTheme(theme: Theme): void {
     this.themeService.updateTheme(theme);
   }
-
-  //   updateTask(task: Task): Observable<void> {
-  //     return this.taskService.updateTask(task);
-  //   }
-
-  //   deleteTask(id: number): Observable<void> {
-  //     return this.taskService.deleteTask(id);
-  //   }
 }
